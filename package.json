@@ -11,11 +11,12 @@
     "build": "babel src --out-dir lib",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "prepublish": "npm run build && npm run dist",
+    "prepublish": "npm run snyk-protect; npm run build && npm run dist",
     "preversion": "npm test",
     "version": "npm run build && npm run dist && git add -A .",
     "postversion": "git push && git push --tags",
-    "release": "npmpub"
+    "release": "npmpub",
+    "snyk-protect": "snyk protect"
   },
   "directories": {
     "example": "examples",
@@ -23,7 +24,8 @@
   },
   "dependencies": {
     "lodash": "^4.2.1",
-    "markdown-it": "^5.1.0"
+    "markdown-it": "^5.1.0",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "babel-cli": "^6.4.5",
@@ -74,5 +76,6 @@
   "bugs": {
     "url": "https://github.com/thangngoc89/markdown-it-react-renderer/issues"
   },
-  "homepage": "https://github.com/thangngoc89/markdown-it-react-renderer"
+  "homepage": "https://github.com/thangngoc89/markdown-it-react-renderer",
+  "snyk": true
 }
